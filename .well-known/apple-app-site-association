@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["3YC6FVCX64.com.eaiccc.MemoryForge"],
+        "paths": ["/deck/*", "/card/*", "/import/*"]
+      }
+    ]
+  }
+}

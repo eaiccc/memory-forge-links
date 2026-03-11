@@ -60,11 +60,24 @@
         a:hover {
             text-decoration: underline;
         }
+        .highlight-box {
+            background: #f0f7ff;
+            border-left: 4px solid #007AFF;
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+        .highlight-box p {
+            margin-bottom: 0;
+            color: #444;
+        }
         @media (prefers-color-scheme: dark) {
             body { background-color: #1a1a1a; color: #e0e0e0; }
             .container { background: #2a2a2a; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
             h1, h2 { color: #f0f0f0; }
             p, li { color: #ccc; }
+            .highlight-box { background: #1e3a5f; border-left-color: #4fa3ff; }
+            .highlight-box p { color: #ccc; }
         }
         @media (max-width: 600px) {
             body { padding: 12px; }
@@ -76,7 +89,7 @@
 <body>
     <div class="container">
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: February 12, 2026</p>
+        <p class="last-updated">Last Updated: March 11, 2026</p>
 
         <h2>Introduction</h2>
         <p>MemoryForge ("we", "our", or "the App") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our flashcard learning application.</p>
@@ -84,46 +97,83 @@
         <h2>Information We Collect</h2>
         <ul>
             <li><strong>Flashcard Data:</strong> Cards and decks you create are stored locally on your device using iOS's built-in data storage.</li>
-            <li><strong>API Keys:</strong> If you choose to use AI features, your API keys are securely stored in the iOS Keychain on your device.</li>
-            <li><strong>Usage Statistics:</strong> We track AI generation usage locally to manage trial limits. This data never leaves your device.</li>
+            <li><strong>API Keys:</strong> If you choose to use AI features, your API keys are securely stored in the iOS Keychain on your device and never transmitted to our servers.</li>
+            <li><strong>Usage Statistics:</strong> AI generation usage counts are tracked locally to manage trial limits. This data never leaves your device.</li>
+            <li><strong>Advertising Identifier (IDFA):</strong> If you grant permission via the App Tracking Transparency (ATT) prompt, your device's advertising identifier may be collected by Google AdMob to deliver personalised ads. If you decline, only non-personalised ads are shown.</li>
+            <li><strong>Ad Interaction Data:</strong> Google AdMob may collect data such as device model, OS version, app activity, and ad interaction events for ad delivery and measurement purposes.</li>
         </ul>
+
+        <h2>App Tracking Transparency (ATT)</h2>
+        <div class="highlight-box">
+            <p>On first launch, the App will ask for your permission to track your activity across other companies' apps and websites for the purpose of delivering personalised advertisements. This uses Apple's App Tracking Transparency framework.</p>
+        </div>
+        <ul>
+            <li><strong>If you allow tracking:</strong> Your advertising identifier (IDFA) is shared with Google AdMob to show personalised ads relevant to your interests.</li>
+            <li><strong>If you decline tracking:</strong> No advertising identifier is shared. You will still see ads, but they will be contextual and non-personalised.</li>
+            <li>You can change this permission at any time in <strong>iOS Settings → Privacy &amp; Security → Tracking</strong>.</li>
+        </ul>
+
+        <h2>Advertising</h2>
+        <p>MemoryForge displays advertisements powered by <strong>Google AdMob</strong>. The App shows three types of ads:</p>
+        <ul>
+            <li><strong>Banner Ads:</strong> Displayed at the bottom of the main deck list screen.</li>
+            <li><strong>Interstitial Ads:</strong> Full-screen ads shown periodically after completing review sessions.</li>
+            <li><strong>Rewarded Ads:</strong> Optional ads you can choose to watch in exchange for additional AI card generation credits.</li>
+        </ul>
+        <p>Google AdMob may collect and process the following data for ad delivery and fraud prevention:</p>
+        <ul>
+            <li>Device identifiers (IDFA if ATT permission is granted)</li>
+            <li>IP address and coarse location</li>
+            <li>App activity and ad interaction events</li>
+            <li>Device information (model, OS version)</li>
+        </ul>
+        <p>For more information on how Google collects and uses this data, please see <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a> and <a href="https://support.google.com/admob/answer/6128543" target="_blank">AdMob's data practices</a>.</p>
+
+        <h2>In-App Purchases</h2>
+        <p>The App offers a one-time in-app purchase to permanently remove all advertisements ("Remove Ads"). Purchase transactions are processed by Apple through the App Store. We do not collect or store any payment information. Apple's privacy policy governs all purchase data: <a href="https://www.apple.com/legal/privacy/" target="_blank">apple.com/legal/privacy</a>.</p>
+        <ul>
+            <li>Purchase status is stored locally on your device.</li>
+            <li>You can restore a previous purchase at any time using the "Restore Purchases" button.</li>
+        </ul>
+
+        <h2>AI Features &amp; Third-Party AI Providers</h2>
+        <p>When you use AI card generation features, your prompts are sent to the AI provider you select:</p>
+        <ul>
+            <li><a href="https://openai.com/policies/privacy-policy" target="_blank">OpenAI</a> (GPT models)</li>
+            <li><a href="https://www.deepseek.com/privacy" target="_blank">DeepSeek</a></li>
+            <li><a href="https://policies.google.com/privacy" target="_blank">Google Gemini</a></li>
+        </ul>
+        <p>We only send the topic and generation parameters you enter &mdash; never your existing flashcard content. Please review each provider's privacy policy for information on how they handle your data.</p>
 
         <h2>How We Store Your Data</h2>
         <ul>
-            <li>All your flashcard data is stored locally on your device.</li>
+            <li>All flashcard data is stored locally on your device using SwiftData.</li>
             <li>API keys are encrypted and stored in the iOS Keychain.</li>
-            <li>We do not have servers that store your personal data.</li>
-            <li>We do not create accounts or require registration.</li>
+            <li>We do not operate servers that store your personal data.</li>
+            <li>We do not require account registration.</li>
         </ul>
-
-        <h2>Third-Party Services</h2>
-        <p>When you use AI card generation features, your prompts are sent to the AI provider you select:</p>
-        <ul>
-            <li>OpenAI (GPT models)</li>
-            <li>DeepSeek</li>
-            <li>Google Gemini</li>
-        </ul>
-        <p>Please review each provider's privacy policy for information about how they handle your data. We only send the topic and generation parameters &mdash; never your existing flashcard content.</p>
 
         <h2>Data Sharing</h2>
         <ul>
             <li>We do not sell your personal information.</li>
-            <li>We do not share your data with third parties for marketing purposes.</li>
-            <li>Your flashcard content stays on your device.</li>
+            <li>We do not share your flashcard content with any third party.</li>
+            <li>Ad-related data may be shared with Google AdMob as described in the Advertising section above, subject to your ATT permission choice.</li>
         </ul>
 
-        <h2>Your Rights</h2>
+        <h2>Your Rights &amp; Controls</h2>
         <ul>
-            <li><strong>Delete:</strong> You can delete all your data by uninstalling the app.</li>
-            <li><strong>Access:</strong> All your data is accessible within the app.</li>
-            <li><strong>Control:</strong> You choose whether to use AI features and which provider to use.</li>
+            <li><strong>Delete:</strong> You can delete all your local data by uninstalling the App.</li>
+            <li><strong>Access:</strong> All your flashcard data is accessible and editable within the App.</li>
+            <li><strong>Tracking:</strong> You can revoke ATT permission at any time in iOS Settings → Privacy &amp; Security → Tracking.</li>
+            <li><strong>Ad-Free Experience:</strong> Purchase "Remove Ads" to permanently remove all advertisements and stop AdMob data collection within the App.</li>
+            <li><strong>AI Provider Choice:</strong> You choose which AI provider to use, or you may opt out of AI features entirely.</li>
         </ul>
 
         <h2>Children's Privacy</h2>
-        <p>Our app is suitable for all ages. We do not knowingly collect personal information from children. The app can be used without providing any personal information.</p>
+        <p>MemoryForge is not directed at children under the age of 13. The App displays interest-based advertisements powered by Google AdMob, which is not suitable for children under 13. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided personal information through the App, please contact us so we can take appropriate action.</p>
 
         <h2>Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by updating the "Last Updated" date at the top of this policy.</p>
+        <p>We may update this Privacy Policy from time to time. We will notify you of material changes by updating the "Last Updated" date at the top of this policy. Continued use of the App after changes constitutes acceptance of the revised policy.</p>
 
         <h2>Contact Us</h2>
         <p>If you have any questions about this Privacy Policy, please contact us at:</p>
